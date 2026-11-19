@@ -1,12 +1,21 @@
-#ifndef SAMPLE_CH
-#define SAMPLE_CH
-
 #include <iostream>
-#include <string>
+#include <vector>
 
-// A small sample C++ header-style file.
-inline void greet(const std::string& name) {
-    std::cout << "Hello, " << name << "!" << std::endl;
+namespace demo {
+
+template <typename T>
+class Box {
+public:
+    explicit Box(T v) : value_(v) {}
+    T get() const { return value_; }
+private:
+    T value_;
+};
+
+}  // namespace demo
+
+int main() {
+    demo::Box<int> b(42);
+    std::cout << b.get() << std::endl;
+    return 0;
 }
-
-#endif // SAMPLE_CH
